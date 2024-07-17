@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:techjar_task/views/post_page/widgets/post_card.dart';
 
 class PostPage extends StatelessWidget {
   const PostPage({super.key});
@@ -9,32 +11,9 @@ class PostPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Post Page'),
       ),
-      body: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // user info will go here
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.person),
-                    Text("user"),
-                  ],
-                ),
-              ),
-
-              // post info will go here
-              ListTile(
-                title: Text("Title"),
-                subtitle: Text("Description"),
-              ),
-            ],
-          ),
-        ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+        child: const PostCard(),
       ),
     );
   }
