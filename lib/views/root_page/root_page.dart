@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:techjar_task/views/post_page/post_page.dart';
-
+import 'package:techjar_task/views/todo_page/todo_page.dart';
 
 /// Hosts all the pages along with bottom navigation bar
 ///
@@ -17,7 +17,7 @@ class RootPage extends ConsumerStatefulWidget {
 class _RootPageState extends ConsumerState<RootPage> {
   final List<Widget> _pagesList = [
     const PostPage(),
-    const PostPage(),
+    const TodoPage(),
     const PostPage(),
     const PostPage(),
   ];
