@@ -1,3 +1,3 @@
 class AppPath {
-  static String allPosts = 'https://jsonplaceholder.typicode.com/posts';
+  static const String postView = '/postView';
 }
