@@ -19,19 +19,11 @@ class CommentWebServices {
     }
   }
 
-  Future<List<CommentModel>> getAllCommentsForPost(String postId) async {
+  Future<List<dynamic>> getAllCommentsForPost(String postId) async {
     try {
       final response = await dio.get(AppUrl.commentsForPost(postId));
 
-      List<dynamic> data = response.data;
-
-      List<CommentModel> comments = [];
-
-      for (var post in data) {
-        comments.add(CommentModel.fromMap(post));
-      }
-
-      return comments;
+      return response.data; 
     } catch (e) {
       rethrow; // This will throw the error to the caller
     }
