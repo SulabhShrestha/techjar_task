@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:techjar_task/views/post_page/post_page.dart';
+import 'package:techjar_task/views/root_page/root_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: PostPage(),
+        home: const RootPage(),
       ),
     );
   }

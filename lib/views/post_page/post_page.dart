@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:techjar_task/models/post_model.dart';
 import 'package:techjar_task/services/post_web_services.dart';
-import 'package:techjar_task/views/post_page/post_view_page/post_view_page.dart';
+import 'package:techjar_task/view_models/post_view_model.dart';
+import 'package:techjar_task/views/post_view_page/post_view_page.dart';
 import 'package:techjar_task/views/post_page/widgets/post_card.dart';
 
 class PostPage extends StatelessWidget {
@@ -18,7 +19,7 @@ class PostPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w),
         child: FutureBuilder<List<PostModel>>(
-          future: PostWebServices().getAllPosts(),
+          future: PostViewModel().getAllPosts(),
           builder: (_, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return ListView.separated(
