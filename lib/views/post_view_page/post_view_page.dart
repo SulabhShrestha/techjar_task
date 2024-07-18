@@ -70,7 +70,7 @@ class _PostViewPageState extends ConsumerState<PostViewPage> {
               addComment(comment);
               _commentController.clear();
             },
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Write your comment here',
             ),
           ),
