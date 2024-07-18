@@ -16,7 +16,6 @@ class UserPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile Page'),
-        backgroundColor: Colors.blue.shade300,
       ),
       body: SingleChildScrollView(
         child: Padding(

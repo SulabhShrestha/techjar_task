@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:techjar_task/models/album_model.dart';
+import 'package:techjar_task/utils/app_colors.dart';
 import 'package:techjar_task/view_models/album_view_model.dart';
 import 'package:techjar_task/views/view_album_photo_page/view_album_photo_page.dart';
 
@@ -11,8 +12,7 @@ class AlbumPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Album Page'),
-        backgroundColor: Colors.blue.shade300,
+        title: const Text('Album Page'),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),

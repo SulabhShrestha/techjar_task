@@ -59,6 +59,7 @@ class _PostViewPageState extends ConsumerState<PostViewPage> {
         .toList();
 
     return Scaffold(
+      appBar: AppBar(),
       floatingActionButton: Container(
         height: 66.h,
         color: Colors.white,
@@ -80,7 +81,8 @@ class _PostViewPageState extends ConsumerState<PostViewPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 70.h),
+            padding:
+                EdgeInsets.only(left: 8.w, right: 8.w, bottom: 70.h, top: 8.h),
             child: Column(
               children: [
                 // Post details,
@@ -99,7 +101,7 @@ class _PostViewPageState extends ConsumerState<PostViewPage> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Comments $totalComments'),
+                      Text('Total comments: $totalComments'),
                       for (var comment in postComments)
                         Card(
                           child: Padding(

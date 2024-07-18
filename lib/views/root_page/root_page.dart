@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:techjar_task/utils/app_colors.dart';
 import 'package:techjar_task/views/album_page/album_page.dart';
 import 'package:techjar_task/views/post_page/post_page.dart';
 import 'package:techjar_task/views/todo_page/todo_page.dart';
@@ -33,7 +34,7 @@ class _RootPageState extends ConsumerState<RootPage> {
       bottomNavigationBar: Container(
         height: 48.h,
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -50,7 +51,7 @@ class _RootPageState extends ConsumerState<RootPage> {
           iconSize: 32.sp,
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
           duration: const Duration(milliseconds: 400),
-          tabBackgroundColor: Colors.blue.shade300,
+          tabBackgroundColor: AppColors.primaryColor,
           tabBorderRadius: 14.r,
           color: Colors.black,
           textStyle: const TextStyle(

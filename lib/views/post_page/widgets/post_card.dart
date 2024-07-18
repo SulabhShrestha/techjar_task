@@ -21,42 +21,40 @@ class PostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          borderRadius: BorderRadius.all(Radius.circular(12.r)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // user info will go here
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(Icons.person),
-                Text(postModel.userId.toString()),
-              ],
-            ),
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // user info will go here
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.person),
+                  Text(postModel.userId.toString()),
+                ],
+              ),
 
-            SizedBox(height: 6.h),
+              SizedBox(height: 6.h),
 
-            Text(
-              postModel.title,
-              maxLines: titleMaxLines,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-            ),
+              Text(
+                postModel.title,
+                maxLines: titleMaxLines,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+              ),
 
-            SizedBox(height: 4.h),
+              SizedBox(height: 4.h),
 
-            Text(
-              postModel.body,
-              maxLines: bodyMaxLines,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
+              Text(
+                postModel.body,
+                maxLines: bodyMaxLines,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ),
       ),
     );

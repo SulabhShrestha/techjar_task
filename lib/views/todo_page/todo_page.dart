@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:techjar_task/models/todo_model.dart';
 import 'package:techjar_task/providers/todos_provider.dart';
 import 'package:techjar_task/views/todo_page/widgets/todo_item.dart';
@@ -14,7 +15,6 @@ class TodoPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Today's tasks"),
-        backgroundColor: Colors.blue.shade300,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -22,24 +22,28 @@ class TodoPage extends ConsumerWidget {
         },
         child: const Icon(Icons.add),
       ),
-      body: Column(children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: todos.length,
-            itemBuilder: (context, index) {
-              return TodoItem(
-                todoModel: todos[index],
-              );
-            },
-          ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: 8.h),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: todos.length,
+                itemBuilder: (context, index) {
+                  return TodoItem(
+                    todoModel: todos[index],
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-      ]),
+      ),
     );
   }
 
   void addTodo(BuildContext context, WidgetRef ref) {
-    final TextEditingController textEditingController =
-        TextEditingController();
+    final TextEditingController textEditingController = TextEditingController();
 
     showDialog(
       context: context,
