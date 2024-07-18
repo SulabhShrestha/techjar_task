@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:techjar_task/models/album_model.dart';
 import 'package:techjar_task/utils/app_colors.dart';
 import 'package:techjar_task/view_models/album_view_model.dart';
+import 'package:techjar_task/views/core_widgets/shimmer_loading.dart';
 import 'package:techjar_task/views/view_album_photo_page/view_album_photo_page.dart';
 
 class AlbumPage extends StatelessWidget {
@@ -25,7 +26,18 @@ class AlbumPage extends StatelessWidget {
                     return const Center(child: Text("Something went wrong"));
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                      child: GridView.count(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 8.w,
+                        mainAxisSpacing: 8.h,
+                        children: List.generate(10, (index) {
+                          return const ShimmerLoading();
+                        }),
+                      ),
+                    );
                   }
 
                   return Expanded(

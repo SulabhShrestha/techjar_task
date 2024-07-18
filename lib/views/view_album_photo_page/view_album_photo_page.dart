@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:techjar_task/models/album_model.dart';
 import 'package:techjar_task/view_models/album_view_model.dart';
+import 'package:techjar_task/views/core_widgets/shimmer_loading.dart';
 
 /// Displays the photos from the album
 ///
@@ -32,7 +33,7 @@ class ViewAlbumPhotoPage extends StatelessWidget {
                 crossAxisSpacing: 8.w,
                 mainAxisSpacing: 8.h,
                 children: List.generate(10, (index) {
-                  return shimmerLoading();
+                  return const ShimmerLoading();
                 }),
               ),
             );
@@ -58,15 +59,4 @@ class ViewAlbumPhotoPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget shimmerLoading() => Shimmer.fromColors(
-        baseColor: Colors.grey.shade400,
-        highlightColor: Colors.grey.shade100,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-        ),
-      );
 }

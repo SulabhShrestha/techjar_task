@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:techjar_task/providers/user_info_provider.dart';
 import 'package:techjar_task/view_models/user_view_model.dart';
+import 'package:techjar_task/views/core_widgets/shimmer_loading.dart';
 
 /// Displays information related to user
 class UserPage extends ConsumerWidget {
@@ -44,7 +45,8 @@ class UserPage extends ConsumerWidget {
                       return ListView.separated(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (_, __) => shimmerLoading(),
+                          itemBuilder: (_, __) => ShimmerLoading(
+                              height: 62.h, width: double.infinity),
                           separatorBuilder: (_, __) => SizedBox(height: 8.h),
                           itemCount: 5);
                     }
@@ -69,7 +71,7 @@ class UserPage extends ConsumerWidget {
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                                 horizontal: 18.w,
-                                                vertical: 8.h),
+                                                vertical: 12.h),
                                             child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
@@ -79,10 +81,17 @@ class UserPage extends ConsumerWidget {
                                                       "Name: ",
                                                       snapshot
                                                           .data![index].name),
+                                                  SizedBox(height: 2.h),
+                                                  richText(
+                                                      "Username: ",
+                                                      snapshot.data![index]
+                                                          .username),
+                                                  SizedBox(height: 2.h),
                                                   richText(
                                                       "Email: ",
                                                       snapshot
                                                           .data![index].email),
+                                                  SizedBox(height: 2.h),
                                                   richText(
                                                       "Phone number: ",
                                                       snapshot
@@ -107,19 +116,6 @@ class UserPage extends ConsumerWidget {
       ),
     );
   }
-
-  Widget shimmerLoading() => Shimmer.fromColors(
-        baseColor: Colors.grey.shade400,
-        highlightColor: Colors.grey.shade100,
-        child: Container(
-          width: double.infinity,
-          height: 52.h,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-        ),
-      );
 
   Widget richText(String firstWord, String secondWord) => Text.rich(
         TextSpan(

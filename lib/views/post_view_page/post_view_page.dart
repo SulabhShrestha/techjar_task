@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:techjar_task/models/comment_model.dart';
 import 'package:techjar_task/models/post_model.dart';
 import 'package:techjar_task/providers/post_comment_provider.dart';
 import 'package:techjar_task/providers/user_info_provider.dart';
 import 'package:techjar_task/services/comment_web_services.dart';
 import 'package:techjar_task/view_models/comment_view_models.dart';
+import 'package:techjar_task/views/core_widgets/shimmer_loading.dart';
 import 'package:techjar_task/views/post_page/widgets/post_card.dart';
 
 class PostViewPage extends ConsumerStatefulWidget {
@@ -86,16 +88,22 @@ class _PostViewPageState extends ConsumerState<PostViewPage> {
             child: Column(
               children: [
                 // Post details,
-                PostCard(postModel: widget.postModel),
+                Hero(tag: "topic", child: PostCard(postModel: widget.postModel)),
 
                 SizedBox(height: 12.h),
 
                 // Post's comments
                 Builder(builder: (_) {
                   if (postComments.isEmpty) {
-                    return const Center(
-                      child: Text('No comments yet'),
-                    );
+                    return ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (_, __) => ShimmerLoading(
+                            height: 92.h, width: double.infinity),
+                        separatorBuilder: (_, __) => SizedBox(
+                              height: 8.h,
+                            ),
+                        itemCount: 4);
                   }
 
                   return Column(

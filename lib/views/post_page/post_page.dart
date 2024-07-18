@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:techjar_task/models/post_model.dart';
 import 'package:techjar_task/view_models/post_view_model.dart';
+import 'package:techjar_task/views/core_widgets/shimmer_loading.dart';
 import 'package:techjar_task/views/post_view_page/post_view_page.dart';
 import 'package:techjar_task/views/post_page/widgets/post_card.dart';
 
@@ -22,7 +23,8 @@ class PostPage extends StatelessWidget {
           builder: (_, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return ListView.separated(
-                  itemBuilder: (_, __) => shimmerLoading(),
+                  itemBuilder: (_, __) =>
+                      ShimmerLoading(height: 92.h, width: double.infinity),
                   separatorBuilder: (_, __) => SizedBox(height: 8.h),
                   itemCount: 5);
             } else if (snapshot.hasError) {
@@ -32,20 +34,23 @@ class PostPage extends StatelessWidget {
                 itemCount: snapshot.data!.length,
                 separatorBuilder: (context, index) => SizedBox(height: 8.h),
                 itemBuilder: (_, index) {
-                  return PostCard(
-                    postModel: snapshot.data![index],
-                    titleMaxLines: 1,
-                    bodyMaxLines: 2,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => PostViewPage(
-                            postModel: snapshot.data![index],
+                  return Hero(
+                    tag: "topic",
+                    child: PostCard(
+                      postModel: snapshot.data![index],
+                      titleMaxLines: 1,
+                      bodyMaxLines: 2,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PostViewPage(
+                              postModel: snapshot.data![index],
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   );
                 },
               );
@@ -55,17 +60,4 @@ class PostPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget shimmerLoading() => Shimmer.fromColors(
-        baseColor: Colors.grey.shade400,
-        highlightColor: Colors.grey.shade100,
-        child: Container(
-          width: double.infinity,
-          height: 92.h,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8.r),
-          ),
-        ),
-      );
 }

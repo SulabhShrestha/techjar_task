@@ -25,6 +25,12 @@ class MyApp extends StatelessWidget {
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: AppColors.primaryColor,
           ),
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: {
+              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+              TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            },
+          ),
           appBarTheme: AppBarTheme(backgroundColor: AppColors.primaryColor),
           inputDecorationTheme: InputDecorationTheme(
             contentPadding: const EdgeInsets.all(16),
