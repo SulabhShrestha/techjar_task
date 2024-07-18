@@ -77,12 +77,12 @@ The project follows a services-oriented architecture, organizing functionality i
 
 ### Images
 
-<img src="flutter_01.png" alt="Flutter Image 01" height="690" width="320">
+<img src="flutter_01.png" alt="Flutter Image 01" height="690" width="280">
 
-<img src="flutter_02.png" alt="Flutter Image 02" height="690" width="320">
+<img src="flutter_02.png" alt="Flutter Image 02" height="690" width="280">
 
-<img src="flutter_03.png" alt="Flutter Image 03" height="690" width="320">
+<img src="flutter_03.png" alt="Flutter Image 03" height="690" width="280">
 
-<img src="flutter_04.png" alt="Flutter Image 04" height="690" width="320">
+<img src="flutter_04.png" alt="Flutter Image 04" height="690" width="280">
 
-<img src="flutter_05.png" alt="Flutter Image 05" height="690" width="320">
+<img src="flutter_05.png" alt="Flutter Image 05" height="690" width="280">
