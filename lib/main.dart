@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, __) => MaterialApp(
         title: 'TechJar Task',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,

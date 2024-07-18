@@ -74,7 +74,7 @@ class _RootPageState extends ConsumerState<RootPage> {
             ),
             GButton(
               icon: Icons.account_circle_outlined,
-              text: 'Profile',
+              text: 'Users',
             ),
           ],
           selectedIndex: _selectedIndex,
